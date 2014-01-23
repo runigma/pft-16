@@ -2,9 +2,12 @@ package com.example.tests;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
 import org.junit.*;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -23,15 +26,25 @@ public class GroupCreationTests {
   }
 
   @Test
-  public void testUntitled() throws Exception {
+  public void testNonEmptyGroupCreation() throws Exception {
     openMainPage();
     gotoGroupsPage();
     initGroupCreation();
-    fillGroupForm();
+    fillGroupForm("group 1", "header 1", "footer 1");
     submitGroupCreation();
     returnToGroupsPage();
   }
 
+  @Test
+  public void testEmptyGroupCreation() throws Exception {
+    openMainPage();
+    gotoGroupsPage();
+    initGroupCreation();
+    fillGroupForm("", "", "");
+    submitGroupCreation();
+    returnToGroupsPage();
+  }
+  
 private void returnToGroupsPage() {
 	driver.findElement(By.linkText("group page")).click();
 }
@@ -40,13 +53,13 @@ private void submitGroupCreation() {
 	driver.findElement(By.name("submit")).click();
 }
 
-private void fillGroupForm() {
+private void fillGroupForm(String name, String header, String footer) {
 	driver.findElement(By.name("group_name")).clear();
-    driver.findElement(By.name("group_name")).sendKeys("group 1");
+    driver.findElement(By.name("group_name")).sendKeys(name);
     driver.findElement(By.name("group_header")).clear();
-    driver.findElement(By.name("group_header")).sendKeys("header 1");
+    driver.findElement(By.name("group_header")).sendKeys(header);
     driver.findElement(By.name("group_footer")).clear();
-    driver.findElement(By.name("group_footer")).sendKeys("footer 1");
+    driver.findElement(By.name("group_footer")).sendKeys(footer);
 }
 
 private void initGroupCreation() {
