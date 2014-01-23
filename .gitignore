@@ -6,3 +6,4 @@
 *.ear
 
 /adressbook-web-tests/bin
+/adressbook-web-tests/lib

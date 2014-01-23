@@ -24,18 +24,42 @@ public class GroupCreationTests {
 
   @Test
   public void testUntitled() throws Exception {
-    driver.get(baseUrl + "/addressbookv4.1.4/");
-    driver.findElement(By.linkText("groups")).click();
-    driver.findElement(By.name("new")).click();
-    driver.findElement(By.name("group_name")).clear();
+    openMainPage();
+    gotoGroupsPage();
+    initGroupCreation();
+    fillGroupForm();
+    submitGroupCreation();
+    returnToGroupsPage();
+  }
+
+private void returnToGroupsPage() {
+	driver.findElement(By.linkText("group page")).click();
+}
+
+private void submitGroupCreation() {
+	driver.findElement(By.name("submit")).click();
+}
+
+private void fillGroupForm() {
+	driver.findElement(By.name("group_name")).clear();
     driver.findElement(By.name("group_name")).sendKeys("group 1");
     driver.findElement(By.name("group_header")).clear();
     driver.findElement(By.name("group_header")).sendKeys("header 1");
     driver.findElement(By.name("group_footer")).clear();
     driver.findElement(By.name("group_footer")).sendKeys("footer 1");
-    driver.findElement(By.name("submit")).click();
-    driver.findElement(By.linkText("group page")).click();
-  }
+}
+
+private void initGroupCreation() {
+	driver.findElement(By.name("new")).click();
+}
+
+private void gotoGroupsPage() {
+	driver.findElement(By.linkText("groups")).click();
+}
+
+private void openMainPage() {
+	driver.get(baseUrl + "/addressbookv4.1.4/");
+}
 
   @After
   public void tearDown() throws Exception {
