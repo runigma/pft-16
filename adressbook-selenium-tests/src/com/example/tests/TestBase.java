@@ -14,7 +14,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import com.example.fw.ApplicationManager;
+
 public class TestBase {
+	
+	protected ApplicationManager app;
 
 	private static  WebDriver driver;
 	private static String baseUrl;
