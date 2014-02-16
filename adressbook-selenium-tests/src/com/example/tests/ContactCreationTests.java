@@ -23,7 +23,7 @@ public class ContactCreationTests extends TestBase {
 	contact.groupname = "group name 1";
 	contact.secondaddress = "address 2";
 	contact.secondphone = "home 1";	
-    app.getContactHelper().fillContactForm(app, this, contact);
+    app.getContactHelper().fillContactForm(contact);
     app.getContactHelper().submitContactCreation();
     app.getNavigationHelper().returnToHomePage();
   }
