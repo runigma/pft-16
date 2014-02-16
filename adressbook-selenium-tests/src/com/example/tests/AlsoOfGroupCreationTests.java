@@ -5,11 +5,11 @@ import org.testng.annotations.Test;
 public class AlsoOfGroupCreationTests extends TestBase {  
   @Test
   public void testEmptyGroupCreation() throws Exception {
-    openMainPage();
-    gotoGroupsPage();
-    initGroupCreation();
-    fillGroupForm(new GroupData("", "", ""));
-    submitGroupCreation();
-    returnToGroupsPage();
+    app.openMainPage();
+    app.gotoGroupsPage();
+    app.initGroupCreation();
+    app.fillGroupForm(this, new GroupData("", "", ""));
+    app.submitGroupCreation();
+    app.returnToGroupsPage();
   }
 }
