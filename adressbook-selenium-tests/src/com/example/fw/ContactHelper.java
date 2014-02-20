@@ -46,7 +46,7 @@ public class ContactHelper extends HelperBase {
 
 	private void clickContactForEditionByIndex(int index) {
 		//click(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr[" + (index + 1) + "]/td[7]/a/img"));
-		click(By.xpath("(//img[@alt='Edit'])[" + (index + 1) + "]"));
+		click(By.xpath("(//img[@alt='Edit'])[" + (index + 2) + "]"));
 	}
 
 	public void initContactModification(int index) {
