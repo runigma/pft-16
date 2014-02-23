@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 
 public class GroupModificationTests extends TestBase{
 	
-	@Test
-	public void modifySomeGroup(){
+	@Test(dataProvider = "randomValidGroupGenerator")
+	public void modifySomeGroup(GroupData group){
 		app.getNavigationHelper().openMainPage();
 	    app.getGroupHelper().gotoGroupsPage();
 	    
@@ -22,9 +22,7 @@ public class GroupModificationTests extends TestBase{
 	    int index = rnd.nextInt(oldList.size()-1);
 	    
 	    //actions
-		app.getGroupHelper().initGroupModification(index);
-		GroupData group = new GroupData();
-		group.name = "new name";
+		app.getGroupHelper().initGroupModification(index);		
 		app.getGroupHelper().fillGroupForm(group);
 		app.getGroupHelper().submitGroupModification();
 		app.getGroupHelper().returnToGroupsPage();
