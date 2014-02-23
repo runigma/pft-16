@@ -61,11 +61,15 @@ public class ContactHelper extends HelperBase {
 
 	public List<ContactData> getContacts() {
 		List<ContactData> contacts = new ArrayList<ContactData>();
-		List<WebElement> rows = driver.findElements(By.name("selected[]"));
+		//List<WebElement> rows = driver.findElements(By.name("selected[]"));
+		List<WebElement> rows = driver.findElements(By.name("//*[@id='maintable']/tbody/tr/td[2]"));
+		rows.remove(rows.size()-1);
 		for (WebElement row : rows) {
 			ContactData contact = new ContactData();
-			String title = row.getAttribute("title");			
-			contact.firstname = title.substring("Select (".length(), title.length() - ")".length());
+			String title = row.getText();
+			contact.firstname = title;
+			//String title = row.getAttribute("title");			
+			//contact.firstname = title.substring("Select (".length(), title.length() - ")".length());
 			contacts.add(contact);
 		}
 		return contacts;

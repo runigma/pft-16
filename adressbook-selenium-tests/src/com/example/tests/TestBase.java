@@ -54,9 +54,9 @@ public class TestBase {
 			contact.workphone = generateRandomString();
 			contact.firstemail = generateRandomString();
 			contact.secondemail = generateRandomString();
-			contact.day = generateRandomString();
-			contact.month = generateRandomString();
-			contact.year = generateRandomString();
+			//contact.day = generateRandomString();
+			//contact.month = generateRandomString();
+			//contact.year = generateRandomString();
 			//contact.groupname = generateRandomString();
 			contact.secondaddress = generateRandomString();
 			contact.secondphone = generateRandomString();			
