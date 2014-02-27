@@ -26,8 +26,6 @@ public class ContactCreationTests extends TestBase {
     List<ContactData> newList = app.getContactHelper().getContacts();
     
     //compare states
-    //contact.firstname = contact.firstname + " " + contact.lastname;
-    contact.firstname = contact.lastname;
     oldList.add(contact);
     Collections.sort(oldList);
     assertEquals(newList, oldList);

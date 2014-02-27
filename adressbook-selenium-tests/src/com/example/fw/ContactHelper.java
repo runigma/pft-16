@@ -46,7 +46,7 @@ public class ContactHelper extends HelperBase {
 
 	private void clickContactForEditionByIndex(int index) {
 		//click(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr[" + (index + 1) + "]/td[7]/a/img"));
-		click(By.xpath("(//img[@alt='Edit'])[" + (index + 2) + "]"));
+		click(By.xpath("(//img[@alt='Edit'])[" + (index + 1) + "]"));
 	}
 
 	public void initContactModification(int index) {
@@ -61,15 +61,11 @@ public class ContactHelper extends HelperBase {
 
 	public List<ContactData> getContacts() {
 		List<ContactData> contacts = new ArrayList<ContactData>();
-		//List<WebElement> rows = driver.findElements(By.name("selected[]"));
-		List<WebElement> rows = driver.findElements(By.name("//*[@id='maintable']/tbody/tr/td[2]"));
-		rows.remove(rows.size()-1);
+		List<WebElement> rows = driver.findElements(By.xpath("//tr[@name='entry']"));
 		for (WebElement row : rows) {
 			ContactData contact = new ContactData();
-			String title = row.getText();
-			contact.firstname = title;
-			//String title = row.getAttribute("title");			
-			//contact.firstname = title.substring("Select (".length(), title.length() - ")".length());
+			contact.firstname = row.findElement(By.xpath("./td[3]")).getText();
+			contact.lastname = row.findElement(By.xpath("./td[2]")).getText();
 			contacts.add(contact);
 		}
 		return contacts;

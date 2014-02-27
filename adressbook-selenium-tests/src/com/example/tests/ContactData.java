@@ -41,14 +41,14 @@ public class ContactData implements Comparable<ContactData> {
 		this.secondphone = secondphone;
 	}
 	
-	
+
+
 
 	@Override
 	public String toString() {
-		return "ContactData [firstname=" + firstname + "]";
+		return "ContactData [firstname=" + firstname + ", lastname=" + lastname
+				+ "]";
 	}
-	
-	
 
 	@Override
 	public int hashCode() {
@@ -77,6 +77,6 @@ public class ContactData implements Comparable<ContactData> {
 
 	@Override
 	public int compareTo(ContactData other) {
-		return this.firstname.toLowerCase().compareTo(other.firstname.toLowerCase());		
+		return this.lastname.toLowerCase().compareTo(other.lastname.toLowerCase());		
 	}
 }
