@@ -17,6 +17,45 @@ public class ContactHelper extends HelperBase {
 		super(manager);
 	}
 
+	public List<ContactData> getContacts() {
+		List<ContactData> contacts = new ArrayList<ContactData>();
+		
+		manager.navigateTo().mainPage();
+		List<WebElement> rows = driver.findElements(By.xpath("//tr[@name='entry']"));
+		for (WebElement row : rows) {
+			ContactData contact = new ContactData()
+			 .withFirstname(row.findElement(By.xpath("./td[3]")).getText())
+			 .withLastname(row.findElement(By.xpath("./td[2]")).getText());
+			contacts.add(contact);
+		}
+		return contacts;
+	}
+	
+	public ContactHelper createContact(ContactData contact) {
+		initContactCreation();
+	    fillContactForm(contact, CREATION);
+	    submitContactCreation();
+	    returnToHomePage();	
+	    return this;
+	}
+	
+	public ContactHelper modifyContact(int index, ContactData contact) {
+		initContactModification(index);
+		fillContactForm(contact, MODIFICATIOIN);
+		submitContactModification();
+		returnToHomePage();
+		return this;
+	}
+	
+	public ContactHelper deleteContact(int index) {
+		clickContactForEditionByIndex(index);
+		submitContactDeletion();
+		returnToHomePage();
+		return this;
+	}
+	
+//-----------------------------------------------------------------------	
+	
 	public ContactHelper initContactCreation() {
 		click(By.linkText("add new"));
 		return this;
@@ -51,12 +90,6 @@ public class ContactHelper extends HelperBase {
 		return this;
 	}
 
-	public ContactHelper deleteContact(int index) {
-		clickContactForEditionByIndex(index);
-		click(By.xpath("//input[@value='Delete']"));
-		return this;
-	}
-
 	private ContactHelper clickContactForEditionByIndex(int index) {
 		//click(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr[" + (index + 1) + "]/td[7]/a/img"));
 		click(By.xpath("(//img[@alt='Edit'])[" + (index + 1) + "]"));
@@ -72,18 +105,15 @@ public class ContactHelper extends HelperBase {
 		click(By.xpath("//input[@value='Update']"));
 		return this;
 	}
-
-	public List<ContactData> getContacts() {
-		List<ContactData> contacts = new ArrayList<ContactData>();
-		List<WebElement> rows = driver.findElements(By.xpath("//tr[@name='entry']"));
-		for (WebElement row : rows) {
-			ContactData contact = new ContactData()
-			 .withFirstname(row.findElement(By.xpath("./td[3]")).getText())
-			 .withLastname(row.findElement(By.xpath("./td[2]")).getText());
-			contacts.add(contact);
-		}
-		return contacts;
-	}	
 	
+	public ContactHelper returnToHomePage() {
+		click(By.linkText("home page"));
+		return this;
+	}
+	
+	public ContactHelper submitContactDeletion() {
+		click(By.xpath("//input[@value='Delete']"));
+		return this;
+	}
 	
 }
