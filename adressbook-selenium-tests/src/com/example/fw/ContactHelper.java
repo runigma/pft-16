@@ -14,11 +14,12 @@ public class ContactHelper extends HelperBase {
 		super(manager);
 	}
 
-	public void initContactCreation() {
+	public ContactHelper initContactCreation() {
 		click(By.linkText("add new"));
+		return this;
 	}
 
-	public void fillContactForm(ContactData contact) {
+	public ContactHelper fillContactForm(ContactData contact) {
 		type(By.name("firstname"), contact.getFirstname());
 		type(By.name("lastname"), contact.getLastname());
 		type(By.name("address"), contact.getAddress());
@@ -33,30 +34,34 @@ public class ContactHelper extends HelperBase {
 	    selectByText(By.name("new_group"), contact.getGroupname());
 	    type(By.name("address2"), contact.getSecondaddress());
 	    type(By.name("phone2"), contact.getSecondphone());
+	    return this;
 	}
 
-	public void submitContactCreation() {
+	public ContactHelper submitContactCreation() {
 		click(By.name("submit"));
+		return this;
 	}
 
-	public void deleteContact(int index) {
+	public ContactHelper deleteContact(int index) {
 		clickContactForEditionByIndex(index);
-		click(By.xpath("//input[@value='Delete']"));		
+		click(By.xpath("//input[@value='Delete']"));
+		return this;
 	}
 
-	private void clickContactForEditionByIndex(int index) {
+	private ContactHelper clickContactForEditionByIndex(int index) {
 		//click(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr[" + (index + 1) + "]/td[7]/a/img"));
 		click(By.xpath("(//img[@alt='Edit'])[" + (index + 1) + "]"));
+		return this;
 	}
 
-	public void initContactModification(int index) {
+	public ContactHelper initContactModification(int index) {
 		clickContactForEditionByIndex(index);
-		
+		return this;
 	}
 
-	public void submitContactModification() {
+	public ContactHelper submitContactModification() {
 		click(By.xpath("//input[@value='Update']"));
-		
+		return this;
 	}
 
 	public List<ContactData> getContacts() {

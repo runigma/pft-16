@@ -17,9 +17,10 @@ public class ContactCreationTests extends TestBase {
     List<ContactData> oldList = app.getContactHelper().getContacts();
     
     //actions
-    app.getContactHelper().initContactCreation();
-    app.getContactHelper().fillContactForm(contact);
-    app.getContactHelper().submitContactCreation();
+    app.getContactHelper()
+      .initContactCreation()
+      .fillContactForm(contact)
+      .submitContactCreation();
     app.getNavigationHelper().returnToHomePage();
     
     //save new state

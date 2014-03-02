@@ -22,9 +22,10 @@ public class ContactModificationTests extends TestBase {
 	    
 	    
 	    //actions
-		app.getContactHelper().initContactModification(index);
-		app.getContactHelper().fillContactForm(contact);
-		app.getContactHelper().submitContactModification();
+		app.getContactHelper()
+		  .initContactModification(index)
+		  .fillContactForm(contact)
+		  .submitContactModification();
 		app.getNavigationHelper().returnToHomePage();
 		
 		//save new state
