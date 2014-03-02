@@ -39,7 +39,16 @@ public class GroupHelper extends HelperBase {
 
 	public GroupHelper deleteGroup(int index) {
 		selectGroupByIndex(index);
-		click(By.name("delete"));
+		submitGroupDeletion();
+		returnToGroupsPage();
+		return this;
+	}
+	
+	public GroupHelper modifyGroup(int index, GroupData group) {
+		initGroupModification(index);
+		fillGroupForm(group);
+		submitGroupModification();
+		returnToGroupsPage();	
 		return this;
 	}
 	
@@ -88,5 +97,9 @@ public class GroupHelper extends HelperBase {
 		return this;
 	}
 
+	public GroupHelper submitGroupDeletion() {
+		click(By.name("delete"));
+		return this;
+	}
 	
 }
