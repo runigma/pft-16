@@ -19,20 +19,20 @@ public class ContactHelper extends HelperBase {
 	}
 
 	public void fillContactForm(ContactData contact) {
-		type(By.name("firstname"), contact.firstname);
-		type(By.name("lastname"), contact.lastname);
-		type(By.name("address"), contact.address);
-		type(By.name("home"), contact.homephone);
-		type(By.name("mobile"), contact.mobilephone);
-		type(By.name("work"), contact.workphone);
-		type(By.name("email"), contact.firstemail);
-		type(By.name("email2"), contact.secondemail);
-	    selectByText(By.name("bday"), contact.day);
-	    selectByText(By.name("bmonth"), contact.month);	    	    	    
-	    type(By.name("byear"), contact.year);
-	    selectByText(By.name("new_group"), contact.groupname);
-	    type(By.name("address2"), contact.secondaddress);
-	    type(By.name("phone2"), contact.secondphone);
+		type(By.name("firstname"), contact.getFirstname());
+		type(By.name("lastname"), contact.getLastname());
+		type(By.name("address"), contact.getAddress());
+		type(By.name("home"), contact.getHomephone());
+		type(By.name("mobile"), contact.getMobilephone());
+		type(By.name("work"), contact.getWorkphone());
+		type(By.name("email"), contact.getFirstemail());
+		type(By.name("email2"), contact.getSecondemail());
+	    selectByText(By.name("bday"), contact.getDay());
+	    selectByText(By.name("bmonth"), contact.getMonth());	    	    	    
+	    type(By.name("byear"), contact.getYear());
+	    selectByText(By.name("new_group"), contact.getGroupname());
+	    type(By.name("address2"), contact.getSecondaddress());
+	    type(By.name("phone2"), contact.getSecondphone());
 	}
 
 	public void submitContactCreation() {
@@ -63,9 +63,9 @@ public class ContactHelper extends HelperBase {
 		List<ContactData> contacts = new ArrayList<ContactData>();
 		List<WebElement> rows = driver.findElements(By.xpath("//tr[@name='entry']"));
 		for (WebElement row : rows) {
-			ContactData contact = new ContactData();
-			contact.firstname = row.findElement(By.xpath("./td[3]")).getText();
-			contact.lastname = row.findElement(By.xpath("./td[2]")).getText();
+			ContactData contact = new ContactData()
+			 .withFirstname(row.findElement(By.xpath("./td[3]")).getText())
+			 .withLastname(row.findElement(By.xpath("./td[2]")).getText());
 			contacts.add(contact);
 		}
 		return contacts;

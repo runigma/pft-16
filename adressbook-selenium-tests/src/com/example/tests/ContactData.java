@@ -1,20 +1,20 @@
 package com.example.tests;
 
 public class ContactData implements Comparable<ContactData> {
-	public String firstname;
-	public String lastname;
-	public String address;
-	public String homephone;
-	public String mobilephone;
-	public String workphone;
-	public String firstemail;
-	public String secondemail;
-	public String day;
-	public String month;
-	public String year;
-	public String groupname;
-	public String secondaddress;
-	public String secondphone;
+	private String firstname;
+	private String lastname;
+	private String address;
+	private String homephone;
+	private String mobilephone;
+	private String workphone;
+	private String firstemail;
+	private String secondemail;
+	private String day;
+	private String month;
+	private String year;
+	private String groupname;
+	private String secondaddress;
+	private String secondphone;
 
 	public ContactData() {
 		
@@ -84,4 +84,113 @@ public class ContactData implements Comparable<ContactData> {
 		}
 		return cmp;
 	}
+
+	public ContactData withFirstname(String firstname) {
+		this.firstname =firstname;
+		return this;
+	}
+
+	public ContactData withLastname(String lastname) {
+		this.lastname = lastname;
+		return this;
+	}
+
+	public ContactData withAddress(String address) {
+		this.address = address;
+		return this;
+	}
+
+	public ContactData withHomephone(String homephone) {
+		this.homephone = homephone;
+		return this;
+	}
+
+	public ContactData withMobilephone(String mobilephone) {
+		this.mobilephone = mobilephone;
+		return this;
+	}
+
+	public ContactData withWorkphone(String workphone) {
+		this.workphone = workphone;
+		return this;
+	}
+
+	public ContactData withFirstemail(String firstname) {
+		this.firstname = firstname;
+		return this;
+	}
+
+	public ContactData withSecondemail(String secondemail) {
+		this.secondemail = secondemail;
+		return this;
+	}
+
+	public ContactData withSecondaddress(String secondaddress) {
+		this.secondaddress = secondaddress;
+		return this;
+	}
+
+	public ContactData withSecondphone(String secondphone) {
+		this.secondphone = secondphone;
+		return this;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getHomephone() {
+		return homephone;
+	}
+
+	public String getMobilephone() {
+		return mobilephone;
+	}
+
+	public String getWorkphone() {
+		return workphone;
+	}
+
+	public String getFirstemail() {
+		return firstemail;
+	}
+
+	public String getSecondemail() {
+		return secondemail;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public String getGroupname() {
+		return groupname;
+	}
+
+	public String getSecondaddress() {
+		return secondaddress;
+	}
+
+	public String getSecondphone() {
+		return secondphone;
+	}
+	
+	
+	
 }

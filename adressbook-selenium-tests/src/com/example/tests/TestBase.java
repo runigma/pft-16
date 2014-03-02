@@ -45,21 +45,21 @@ public class TestBase {
 		List<Object[]> list = new ArrayList<Object[]>();		
 		for (int i=0; i<5; i++)
 		{
-			ContactData contact = new ContactData();
-			contact.firstname = generateRandomString();
-			contact.lastname = generateRandomString();
-			contact.address = generateRandomString();
-			contact.homephone = generateRandomString();
-			contact.mobilephone = generateRandomString();
-			contact.workphone = generateRandomString();
-			contact.firstemail = generateRandomString();
-			contact.secondemail = generateRandomString();
-			//contact.day = generateRandomString();
-			//contact.month = generateRandomString();
-			//contact.year = generateRandomString();
-			//contact.groupname = generateRandomString();
-			contact.secondaddress = generateRandomString();
-			contact.secondphone = generateRandomString();			
+			ContactData contact = new ContactData()
+			 .withFirstname(generateRandomString())
+			 .withLastname(generateRandomString())
+			 .withAddress(generateRandomString())
+			 .withHomephone(generateRandomString())
+			 .withMobilephone(generateRandomString())
+			 .withWorkphone(generateRandomString())
+			 .withFirstemail(generateRandomString())
+			 .withSecondemail(generateRandomString())
+			 //.withDay(generateRandomString())
+			 //.withMonth(generateRandomString())
+			 //.withYear(generateRandomString())
+			 //.withGroupname(generateRandomString())
+			 .withSecondaddress(generateRandomString())
+			 .withSecondphone(generateRandomString());				
 			list.add(new Object[]{contact});
 		}
 		return list.iterator(); 
