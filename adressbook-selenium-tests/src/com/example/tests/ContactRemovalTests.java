@@ -12,7 +12,7 @@ public class ContactRemovalTests extends TestBase {
 	
 	@Test
 	public void deleteSomeContact(){
-		app.getNavigationHelper().openMainPage();
+		app.navigateTo().mainPage();
 		
 		//save old state
 	    List<ContactData> oldList = app.getContactHelper().getContacts();
@@ -22,7 +22,7 @@ public class ContactRemovalTests extends TestBase {
 	    
 	    //actions
 		app.getContactHelper().deleteContact(index);
-		app.getNavigationHelper().returnToHomePage();
+		app.navigateTo().returnToHomePage();
 		
 		//save new state
 	    List<ContactData> newList = app.getContactHelper().getContacts();

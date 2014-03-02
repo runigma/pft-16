@@ -12,7 +12,7 @@ public class GroupModificationTests extends TestBase{
 	
 	@Test(dataProvider = "randomValidGroupGenerator")
 	public void modifySomeGroup(GroupData group){
-		app.getNavigationHelper().openMainPage();
+		app.navigateTo().mainPage();
 	    app.getGroupHelper().gotoGroupsPage();
 	    
 	    //save old state
