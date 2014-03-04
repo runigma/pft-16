@@ -47,7 +47,7 @@ public class ContactDataGenerator {
 						+ contact.getHomephone() + "," + contact.getMobilephone() + "," + contact.getWorkphone() + ","  
 						+ contact.getFirstemail() + "," + contact.getSecondemail() + "," + contact.getDay() + "," 
 						+ contact.getMonth() + "," + contact.getYear() + "," + contact.getGroupname() + ","  
-						+ contact.getSecondaddress() + "," + contact.getSecondphone() + "\n");			
+						+ contact.getSecondaddress() + "," + contact.getSecondphone() + "!" + "\n");			
 		}
 		writer.close(); 
 	}
