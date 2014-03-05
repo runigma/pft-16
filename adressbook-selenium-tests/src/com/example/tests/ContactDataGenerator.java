@@ -1,11 +1,15 @@
 package com.example.tests;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import com.thoughtworks.xstream.XStream;
 
 public class ContactDataGenerator {
 
@@ -35,9 +39,48 @@ public class ContactDataGenerator {
 		}
 	}
 
-	private static void saveContactsToXmlFile(List<ContactData> contacts, File file) {
-		// TODO Auto-generated method stub
-		
+	private static void saveContactsToXmlFile(List<ContactData> contacts, File file) throws IOException {
+		XStream xstream = new XStream();
+		xstream.alias("contact", ContactData.class);
+		String xml = xstream.toXML(contacts);
+		FileWriter writer = new FileWriter(file);
+		writer.write(xml);
+		writer.close();
+	}
+	
+	public static List<ContactData> loadContactsFromXmlFile(File file) {
+		XStream xstream = new XStream();
+		xstream.alias("contact", ContactData.class);
+		return (List<ContactData>) xstream.fromXML(file);				
+	}
+	
+	public static List<ContactData> loadGroupsFromCsvFile(File file) throws IOException {
+		List<ContactData> list = new ArrayList<ContactData>();
+		FileReader reader = new FileReader(file);
+		BufferedReader bufferedReader = new BufferedReader(reader);		
+		String line = bufferedReader.readLine();
+		while (line != null) {
+			String[] part	= line.split(",");
+			ContactData contact= new ContactData()
+			 .withFirstname(part[0])
+			 .withLastname(part[1])
+			 .withAddress(part[2])
+			 .withHomephone(part[3])
+			 .withMobilephone(part[4])
+			 .withWorkphone(part[5])
+			 .withFirstemail(part[6])
+			 .withSecondemail(part[7])
+			 //.withDay(part[8])
+			 //.withMonth(part[9])
+			 //.withYear(part[10])
+			 //.withGroupname(part[11])
+			 .withSecondaddress(part[12])
+			 .withSecondphone(part[13]);		
+			list.add(contact);
+			line = bufferedReader.readLine();
+		}
+		bufferedReader.close();
+		return list;
 	}
 
 	private static void saveContactsToCsvFile(List<ContactData> contacts, File file) throws IOException {

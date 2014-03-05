@@ -1,0 +1,35 @@
+<list>
+  <contact>
+    <firstname>test-655233797</firstname>
+    <lastname></lastname>
+    <address></address>
+    <homephone>test791049230</homephone>
+    <mobilephone>test-1564194234</mobilephone>
+    <workphone></workphone>
+    <secondemail>test773936213</secondemail>
+    <secondaddress></secondaddress>
+    <secondphone></secondphone>
+  </contact>
+  <contact>
+    <firstname>test-1611517772</firstname>
+    <lastname>test1670984828</lastname>
+    <address>test1936681281</address>
+    <homephone>test-1864653134</homephone>
+    <mobilephone>test-1459153673</mobilephone>
+    <workphone></workphone>
+    <secondemail></secondemail>
+    <secondaddress></secondaddress>
+    <secondphone>test1510495310</secondphone>
+  </contact>
+  <contact>
+    <firstname></firstname>
+    <lastname>test718750258</lastname>
+    <address>test1813499450</address>
+    <homephone>test655636333</homephone>
+    <mobilephone>test-2056275723</mobilephone>
+    <workphone>test-1517661651</workphone>
+    <secondemail></secondemail>
+    <secondaddress>test-633778156</secondaddress>
+    <secondphone>test1126601899</secondphone>
+  </contact>
+</list>
