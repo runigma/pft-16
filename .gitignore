@@ -8,3 +8,8 @@
 /adressbook-selenium-tests/bin
 /adressbook-selenium-tests/lib
 /adressbook-selenium-tests/test-output
+
+
+/addressbook-java-tests/bin
+/addressbook-java-tests/lib
+/addressbook-java-tests/test-output
