@@ -8,6 +8,8 @@ public class ApplicationManager {
 	private static ApplicationManager singleton;
 	
 	private Properties props;
+
+	private FolderHelper folderHelper;
 	
 	private static ApplicationManager getInstance() {
 		if (singleton == null) {
@@ -30,6 +32,14 @@ public class ApplicationManager {
 	
 	public String getProperty(String key, String defaultValue) {
 		return props.getProperty(key, defaultValue);		
+	}
+
+
+	public FolderHelper getFolderHelper() {
+		if (folderHelper == null) {
+			folderHelper = new FolderHelper();
+		}
+		return folderHelper;
 	}
 
 }
