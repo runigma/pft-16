@@ -1,4 +1,4 @@
-package com.example.tests;
+package com.example.fw;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,9 +45,7 @@ public class Folders {
 
 	@Override
 	public String toString() {
-		return "Folders [storedFolders=" + storedFolders + "]";
-	}
-
-	
+		return "Folders [" + storedFolders + "]";
+	}	
 	
 }
