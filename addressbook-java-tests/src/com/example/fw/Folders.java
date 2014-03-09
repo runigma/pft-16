@@ -16,6 +16,16 @@ public class Folders {
 		newList.storedFolders.add(folder);
 		return newList;
 	}
+	
+	public Folders without(int index) {
+		Folders newList = new Folders(storedFolders);
+		newList.storedFolders.remove(index);
+		return newList;
+	}
+	
+	public int size() {
+		return this.storedFolders.size();
+	}	
 
 	@Override
 	public int hashCode() {
@@ -46,6 +56,6 @@ public class Folders {
 	@Override
 	public String toString() {
 		return "Folders [" + storedFolders + "]";
-	}	
+	}
 	
 }
