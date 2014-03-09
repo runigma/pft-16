@@ -13,3 +13,8 @@
 /addressbook-java-tests/bin
 /addressbook-java-tests/lib
 /addressbook-java-tests/test-output
+
+
+/addressbook-native-tests/bin
+/addressbook-native-tests/lib
+/addressbook-native-tests/test-output
